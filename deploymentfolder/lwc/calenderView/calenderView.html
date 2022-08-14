@@ -1,0 +1,166 @@
+<template>
+        <form>
+        <label>Resource Type :
+    <select  name = "optionSelect" onchange={ResourceType} >
+        <option value="All Users">All Users</option>
+        <option value="My Team">My Team</option>
+    </select> 
+</label>
+        </form>
+<div class="tableFixHead">
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered " border="1"  cellspacing ="2" cellpadding ="6">
+        <thead>
+            <tr>
+            <th rowspan="3" scope="col" >Name</th>
+            <th style="text-align:center" colspan="3" scope="col">{today}</th>
+            <th style="text-align:center" colspan="3" scope="col">{today1}</th>
+            <th style="text-align:center" colspan="3" scope="col">{today2}</th>
+            <th style="text-align:center" colspan="3" scope="col" >{today3}</th>
+            <th style="text-align:center" colspan="3" scope="col" >{today4}</th>
+
+            </tr>
+            <tr>
+                <th scope="col">Shift</th>
+                <th scope="col">Service Appointment</th>
+                <th scope="col">Absences</th>
+                <th scope="col">Shift</th>
+                <th scope="col">Service Appointment</th>
+                <th scope="col">Absences</th>
+                <th scope="col">Shift</th>
+                <th scope="col">Service Appointment</th>
+                <th scope="col">Absences</th>
+                <th scope="col">Shift</th>
+                <th scope="col">Service Appointment</th>
+                <th scope="col">Absences</th>
+                <th scope="col">Shift</th>
+                <th scope="col">Service Appointment</th>
+                <th scope="col">Absences</th>            
+                
+            </tr>
+        </thead>
+        <tbody>
+            <template if:true={srdata}>
+            <template for:each={srdata} for:item="op">
+                    <tr key={op.Id}>
+                        <td >
+                            <a data-id={op.id} obj="ServiceResource" onclick={navigateToRecordPage}> {op.Name}</a>
+                        </td>
+                        <td>
+                            <template if:true={op.Shift1}>
+                                <template for:each={op.Shift1} for:item="abs">
+                                    
+                                     <!-- <p key={abs.Id} > <lightning:formattedTime  value={!abs.Start}  /> </p>  -->
+                                    <a key={abs.Id} data-id={abs.Id} obj="Shift" onclick={navigateToRecordPage} > {abs.tz_shift__c} <br> </a> 
+                                    
+                                </template>
+                            </template>
+                        </td>
+                        <td>
+                            <template if:true={op.SA1}>
+                            <template for:each={op.SA1} for:item="abs">
+                                <a key={abs.Id} data-id={abs.ServiceAppointmentId} obj="ServiceAppointment" onclick={navigateToRecordPage}> {abs.ServiceAppointment.AppointmentNumber} <br> </a>
+                            </template>
+                        </template>
+                        </td>
+                        <td>
+                            <template if:true={op.RA1}>
+                            <template for:each={op.RA1} for:item="abs">
+                                <a key={abs.Id} data-id={abs.Id} obj="ResourceAbsence" onclick={navigateToRecordPage}> {abs.AbsenceNumber} <br> </a>
+                            </template>
+                        </template>
+                        </td>
+                        <td>
+                            <template if:true={op.Shift2}>
+                                <template for:each={op.Shift2} for:item="abs">
+                                     <a key={abs.Id} data-id={abs.Id} obj="Shift" onclick={navigateToRecordPage}> {abs.tz_shift__c} <br> </a>
+                                </template>
+                            </template>
+                        </td>
+                        <td>
+                            <template if:true={op.SA2}>
+                            <template for:each={op.SA2} for:item="abs">
+                                <a key={abs.Id} data-id={abs.ServiceAppointmentId} obj="ServiceAppointment" onclick={navigateToRecordPage}> {abs.ServiceAppointment.AppointmentNumber} <br> </a>
+                            </template>
+                        </template>
+                        </td>
+                        <td>
+                            <template if:true={op.RA2}>
+                            <template for:each={op.RA2} for:item="abs">
+                                <a key={abs.Id} data-id={abs.Id} obj="ResourceAbsence" onclick={navigateToRecordPage}> {abs.AbsenceNumber} <br> </a>
+                            </template>
+                        </template>
+                        </td>
+                        <td>
+                            <template if:true={op.Shift3}>
+                                <template for:each={op.Shift3} for:item="abs">
+                                     <a key={abs.Id} data-id={abs.Id} obj="Shift" onclick={navigateToRecordPage}> {abs.tz_shift__c} <br> </a>
+                    
+                                </template>
+                            </template>
+                        </td>
+                        <td>
+                            <template if:true={op.SA3}>
+                            <template for:each={op.SA3} for:item="abs">
+                                <a key={abs.Id} data-id={abs.ServiceAppointmentId} obj="ServiceAppointment" onclick={navigateToRecordPage}> {abs.ServiceAppointment.AppointmentNumber} <br> </a>
+                            </template>
+                        </template>
+                        </td>
+                        <td>
+                            <template if:true={op.RA3}>
+                            <template for:each={op.RA3} for:item="abs">
+                                <a key={abs.Id} data-id={abs.Id} obj="ResourceAbsence" onclick={navigateToRecordPage}> {abs.AbsenceNumber} <br> </a>
+                            </template>
+                        </template>
+                        </td>
+                        <td>
+                            <template if:true={op.Shift4}>
+                                <template for:each={op.Shift4} for:item="abs">
+                                     <a key={abs.Id} data-id={abs.Id} obj="Shift" onclick={navigateToRecordPage}> {abs.tz_shift__c} <br> </a>
+                                    
+                                </template>
+                            </template>
+                        </td>
+                        <td>
+                            <template if:true={op.SA4}>
+                            <template for:each={op.SA4} for:item="abs">
+                                <a key={abs.Id} data-id={abs.ServiceAppointmentId} obj="ServiceAppointment" onclick={navigateToRecordPage}> {abs.ServiceAppointment.AppointmentNumber} <br> </a>
+                            </template>
+                        </template>
+                        </td>
+                        <td>
+                            <template if:true={op.RA4}>
+                            <template for:each={op.RA4} for:item="abs">
+                                <a key={abs.Id} data-id={abs.Id} obj="ResourceAbsence" onclick={navigateToRecordPage}> {abs.AbsenceNumber} <br> </a>
+                            </template>
+                        </template>
+                        </td>
+                        <td>
+                            <template if:true={op.Shift5}>
+                                <template for:each={op.Shift5} for:item="abs">
+                                     <a key={abs.Id} data-id={abs.Id} obj="Shift" onclick={navigateToRecordPage}> {abs.tz_shift__c} <br> </a>
+                                   
+                                </template>
+                            </template>
+                        </td>
+                        <td>
+                            <template if:true={op.SA5}>
+                            <template for:each={op.SA5} for:item="abs">
+                                <a key={abs.Id} data-id={abs.ServiceAppointmentId} obj="ServiceAppointment" onclick={navigateToRecordPage}> {abs.ServiceAppointment.AppointmentNumber} <br> </a>
+                            </template>
+                        </template>
+                        </td>
+                        <td>
+                            <template if:true={op.RA5}>
+                            <template for:each={op.RA5} for:item="abs">
+                                <a key={abs.Id} data-id={abs.Id} obj="ResourceAbsence" onclick={navigateToRecordPage}> {abs.AbsenceNumber} <br> </a>
+                            </template>
+                        </template>
+                        </td>
+                    </tr>
+                    
+            </template>
+            </template>
+        </tbody>
+    </table>
+</div>
+</template>

@@ -1,0 +1,10 @@
+<apex:page showHeader="false" sidebar="false" standardStylesheets="false">
+   
+        <h3>Images</h3>
+        <p>A hidden message:
+            <apex:image alt="cats" title="CAT"
+                url="{!URLFOR($Resource.vfimagetest, 'cats/kitten1.jpg')}"/>
+            
+        </p>
+    
+</apex:page>
